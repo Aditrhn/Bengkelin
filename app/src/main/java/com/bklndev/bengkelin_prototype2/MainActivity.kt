@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.bklndev.bengkelin_prototype2.fragment.AccountFragment
 import com.bklndev.bengkelin_prototype2.fragment.ChatFragment
 import com.bklndev.bengkelin_prototype2.fragment.HomeFragment
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
