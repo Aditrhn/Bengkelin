@@ -1,4 +1,4 @@
-package com.bklndev.bengkelin_prototype2
+package com.bklndev.bengkelin
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,9 +7,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.bklndev.bengkelin_prototype2.fragment.AccountFragment
-import com.bklndev.bengkelin_prototype2.fragment.ChatFragment
-import com.bklndev.bengkelin_prototype2.fragment.HomeFragment
+import com.bklndev.bengkelin.fragment.AccountFragment
+import com.bklndev.bengkelin.fragment.ChatFragment
+import com.bklndev.bengkelin.fragment.HomeFragment
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 

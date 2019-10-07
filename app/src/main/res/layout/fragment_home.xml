@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".fragment.HomeFragment"
-    android:background="@drawable/main_background">
+    tools:context=".fragment.HomeFragment">
 
-<!--    cardview buat hello -->
-    <androidx.cardview.widget.CardView
+    <!--    cardview buat hello -->
+    <LinearLayout
         android:id="@+id/cv_hello"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="@dimen/cardview_default_elevation">
+        android:background="@drawable/rounded_style_white"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,110 +49,140 @@
                     android:text="Depok, Sleman, Yogyakarta" />
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!--    Button search-->
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/rounded_style"
-        android:text="SEARCH NEARBY BENGKEL"
-        android:textColor="#fff" />
-
-    <!--    menu fix by yourself-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="or fix by yourself"
-        android:textColor="@color/colorBackground"
-        android:textSize="16dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+        <!--    Button search-->
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="28dp"
+            android:background="@drawable/rounded_style_primary"
+            android:text="SEARCH NEARBY BENGKEL"
+            android:textColor="#fff" />
 
-        <LinearLayout
+        <!--    menu fix by yourself-->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_motorcycle_black_24dp" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Motorcycle"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="or fix by yourself"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_directions_car_black_24dp" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Car"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="10dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="10dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_motorcycle_black_24dp"
+                        android:tint="@color/colorPrimaryDark" />
+                </androidx.cardview.widget.CardView>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/ic_build_black_24dp" />
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Motorcycle"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Other"
-                android:textSize="16sp" />
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_directions_car_black_24dp"
+                        android:tint="@color/colorPrimaryDark" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Car"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_build_black_24dp"
+                        android:tint="@color/colorPrimaryDark" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+            </LinearLayout>
         </LinearLayout>
+
+        <!--        articles-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="36dp"
+            android:text="articles"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_article"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" />
     </LinearLayout>
-
 </LinearLayout>

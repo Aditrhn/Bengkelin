@@ -1,4 +1,4 @@
-package com.bklndev.bengkelin_prototype2
+package com.bklndev.bengkelin
 
 import org.junit.Test
 
