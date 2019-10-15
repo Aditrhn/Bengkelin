@@ -3,23 +3,18 @@ package com.bklndev.bengkelin
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.bklndev.bengkelin.fragment.AccountFragment
 import com.bklndev.bengkelin.fragment.ChatFragment
 import com.bklndev.bengkelin.fragment.HomeFragment
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_dashboard.*
 
-class MainActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
 
-    val manager = supportFragmentManager
+    private val manager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_dashboard)
 
         createFragmentHome()
 
@@ -29,15 +24,15 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.dash_nav_home -> {
+                R.id.item_nav_home -> {
                     createFragmentHome()
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.dash_nav_chat -> {
+                R.id.item_nav_chat -> {
                     createFragmentChat()
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.dash_nav_account -> {
+                R.id.item_nav_account -> {
                     createFragmentAccount()
                     return@OnNavigationItemSelectedListener true
                 }
@@ -45,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-    fun createFragmentHome(){
+    private fun createFragmentHome(){
         val transaction = manager.beginTransaction()
         val fragment = HomeFragment()
         transaction.replace(R.id.dash_container,fragment)
@@ -53,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun createFragmentChat(){
+    private fun createFragmentChat(){
         val transaction = manager.beginTransaction()
         val fragment = ChatFragment()
         transaction.replace(R.id.dash_container,fragment)
@@ -61,11 +56,16 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun createFragmentAccount(){
+    private fun createFragmentAccount(){
         val transaction = manager.beginTransaction()
         val fragment = AccountFragment()
         transaction.replace(R.id.dash_container,fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

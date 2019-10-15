@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
  * A simple [Fragment] subclass.
  */
 class HomeFragment : Fragment() {
-    val title = arrayOf("Cara Begal Motor","Cara Menghindari Cegatan", "Cheat Anti Polisi Terbaru","Cara Memilih Tromol")
+    val title = arrayOf("Cara Begal Motor","Cara Menghindari Cegatan dan Roadblock Heat level 5", "Cheat Anti Polisi Terbaru","Cara Memilih Tromol")
     val section = arrayOf("Tips", "Tips", "News", "Tips")
 
     override fun onCreateView(
