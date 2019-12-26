@@ -10,6 +10,12 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register.*
+import com.google.firebase.auth.FirebaseUser
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -25,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
             nextToPassword()
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -36,13 +43,17 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun nextToPassword(){
         var name: String = et_name.toString()
-        var email: String = et_email.toString()
+        var email: String = et_email .getText().toString().trim()
+
+        fun isEmailValid(email: String): Boolean {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        }
 
         if(TextUtils.isEmpty(name)||TextUtils.isEmpty(email)){
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
+        }else if(isEmailValid(email)){
+            Toast.makeText(this, "Please provide valid email address", Toast.LENGTH_LONG).show()
         }else{
-            Toast.makeText(this, "Successfully add Name and Email", Toast.LENGTH_LONG).show()
-
             intent = Intent(this, RegisterPasswordActivity::class.java)
             intent.putExtra("name_value", name)
             intent.putExtra("email_value", email)

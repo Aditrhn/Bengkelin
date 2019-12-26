@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register_password.*
@@ -33,6 +36,11 @@ class RegisterPasswordActivity : AppCompatActivity() {
         btn_register.setOnClickListener{
             var password: String = et_password.toString()
             var repassword: String = et_password_re.toString()
+            val dialog = MaterialDialog(this)
+                .customView(R.layout.loading)
+                .cancelOnTouchOutside(false)
+
+            dialog.show()
             if(TextUtils.isEmpty(password)||TextUtils.isEmpty(repassword)){
                 Toast.makeText(this, "Please Fill all the Fileds", Toast.LENGTH_LONG).show()
             }else{
@@ -40,9 +48,9 @@ class RegisterPasswordActivity : AppCompatActivity() {
                     if(task.isSuccessful){
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
                         nextToDashboard()
-                        finish()
                     }else{
-                        Toast.makeText(this, "Registration Failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Registration Failed" +
+                                task.getException(), Toast.LENGTH_LONG).show()
                     }
                 })
             }
