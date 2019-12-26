@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "551876377418-uh80ueukjf59m7hlvtjtstjq24bmj4g9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bklndev.bengkelin",
+            "certificate_hash": "65b3d1946fc44aab22fdc147f5324783b2347905"
+          }
+        },
+        {
           "client_id": "551876377418-eq4vmm6i2b6qqmqqhvtctpjfee70oeim.apps.googleusercontent.com",
           "client_type": 3
         }
