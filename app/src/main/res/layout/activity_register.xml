@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorWhite"
             android:hint="yourmail@domain.com"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorGrey" />
 
