@@ -36,6 +36,8 @@ class RegisterPasswordActivity : AppCompatActivity() {
         btn_register.setOnClickListener{
             var password: String = et_password.toString()
             var repassword: String = et_password_re.toString()
+
+            //dialog loading
             val dialog = MaterialDialog(this)
                 .customView(R.layout.loading)
                 .cancelOnTouchOutside(false)
