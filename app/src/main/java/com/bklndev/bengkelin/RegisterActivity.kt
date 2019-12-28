@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import android.util.Log
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -48,10 +48,12 @@ class RegisterActivity : AppCompatActivity() {
         fun isEmailValid(email: String): Boolean {
             return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
-
+//        fun isPhoneValid(phone: String): Boolean {
+//
+//        }
         if(TextUtils.isEmpty(name)||TextUtils.isEmpty(email)){
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
-        }else if(isEmailValid(email)){
+        }else if(!isEmailValid(email)){
             Toast.makeText(this, "Please provide valid email address", Toast.LENGTH_LONG).show()
         }else{
             intent = Intent(this, RegisterPasswordActivity::class.java)
