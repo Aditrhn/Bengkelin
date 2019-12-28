@@ -42,8 +42,9 @@ class RegisterActivity : AppCompatActivity() {
         return true
     }
     private fun nextToPassword(){
-        var name: String = et_name.toString()
-        var email: String = et_email .getText().toString().trim()
+        val name: String = et_name .getText().toString().trim()
+        val email: String = et_email .getText().toString().trim()
+        val phone: String = et_phone .getText().toString().trim()
 
         fun isEmailValid(email: String): Boolean {
             return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
@@ -59,6 +60,7 @@ class RegisterActivity : AppCompatActivity() {
             intent = Intent(this, RegisterPasswordActivity::class.java)
             intent.putExtra("name_value", name)
             intent.putExtra("email_value", email)
+            intent.putExtra("phone_value", phone)
             startActivity(intent)
             finish()
         }
