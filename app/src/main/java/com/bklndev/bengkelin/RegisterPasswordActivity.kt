@@ -30,7 +30,7 @@ class RegisterPasswordActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         val bundle: Bundle? = intent.extras
-        val name: String? = bundle?.getString("name_value")
+//        val name: String? = bundle?.getString("name_value")
         val email = bundle?.getString("email_value") as String
 
         btn_register.setOnClickListener{
