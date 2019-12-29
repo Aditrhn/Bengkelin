@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
     private var codeSent: String? = ""
+    private lateinit var phone: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +62,9 @@ class RegisterActivity : AppCompatActivity() {
             override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
                 super.onCodeSent(verificationId, token)
                 codeSent = verificationId
+
+                Log.d("PhoneAuthActivity","phone : $phone verif id : $codeSent")
+                nextToNumber(phone)
             }
         }
     }
@@ -89,7 +93,6 @@ class RegisterActivity : AppCompatActivity() {
             intent.putExtra("phone_value", phone)
             intent.putExtra("code_value", codeSent)
             startActivity(intent)
-            finish()
         }
     }
 
@@ -98,14 +101,17 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun sendVerificationCode(){
-        val phone: String = et_phone .text.toString().trim()
+        phone = et_phone .text.toString().trim()
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             phone, // Phone number to verify
             30, // Timeout duration
             TimeUnit.SECONDS, // Unit of timeout
             this, // Activity (for callback binding)
             callbacks) // OnVerificationStateChangedCallbacks
-//        nextToNumber(phone)
-        Log.w("PhoneAuthActivity", "code : $codeSent")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("CODE_SENT",codeSent)
     }
 }

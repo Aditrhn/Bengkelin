@@ -78,11 +78,6 @@ class RegisterPasswordActivity : AppCompatActivity() {
         inflater.inflate(R.menu.register_menu, menu)
         return true
     }
-    private fun nextToDashboard(){
-        intent = Intent(this, DashboardActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
     private fun registerUser(email: String, password: String, name: String, phone: String){
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
@@ -103,7 +98,13 @@ class RegisterPasswordActivity : AppCompatActivity() {
             .addOnCompleteListener{
                 if (it.isSuccessful){
                     dialog.dismiss()
-                    nextToDashboard()
+                    MaterialDialog(this).show {
+                        title(text = "Register Successfull")
+                        message(text = "Please Login to continue")
+                        positiveButton(text = "Login"){
+                            nextToLogin()
+                        }
+                    }
                 }else{
                     Toast.makeText(this, "Registration Failed" +
                             it.exception, Toast.LENGTH_LONG).show()
@@ -114,16 +115,21 @@ class RegisterPasswordActivity : AppCompatActivity() {
                 //todo failure exception
             }
     }
-    fun isPasswordContainNumber(password: String): Boolean {
+    private fun isPasswordContainNumber(password: String): Boolean {
         val exp = ".*[0-9].*"
         val pattern = Pattern.compile(exp, Pattern.CASE_INSENSITIVE)
         val matcher = pattern.matcher(password)
         return matcher.matches()
     }
-    fun isPasswordContainLetter(password: String): Boolean{
+    private fun isPasswordContainLetter(password: String): Boolean{
         val exp = ".*[a-zA-Z].*"
         val pattern = Pattern.compile(exp)
         val matcher = pattern.matcher(password)
         return matcher.matches()
+    }
+    private fun nextToLogin(){
+        intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
