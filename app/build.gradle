@@ -58,5 +58,14 @@ dependencies {
     //material dialog
     implementation 'com.afollestad.material-dialogs:core:3.1.1'
 
+    //libphonenumber
+    implementation 'io.michaelrocks:libphonenumber-android:8.10.16'
+
+    //pin entry edittext
+    implementation('com.alimuzaffar.lib:pinentryedittext:2.0.6') {
+        // Exclude is only needed if you already have
+        // androidx.appcompat as a dependency in your app.
+        exclude group: 'androidx.appcompat', module: 'appcompat'
+    }
 }
 apply plugin: 'com.google.gms.google-services'
