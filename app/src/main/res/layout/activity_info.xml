@@ -23,11 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
-        android:drawableLeft="@drawable/ic_description_orange_24dp"
         android:drawablePadding="10dp"
         android:gravity=""
         android:paddingStart="16dp"
-        android:text="@string/btn_term"
+
         android:textSize="16sp"/>
 
     <Button
@@ -35,11 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
-        android:drawableLeft="@drawable/ic_code_orange_24dp"
         android:drawablePadding="10dp"
         android:gravity=""
         android:paddingStart="16dp"
-        android:text="@string/btn_dev"
+
         android:textSize="16sp"/>
 
     <Button
@@ -47,11 +45,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
-        android:drawableLeft="@drawable/ic_sync_orange_24dp"
         android:drawablePadding="10dp"
         android:gravity=""
         android:paddingStart="16dp"
-        android:text="@string/btn_ver"
-        android:textSize="16sp"/>
 
+        android:textSize="16sp"/>
 </LinearLayout>
