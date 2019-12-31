@@ -18,10 +18,9 @@ class OnBoardingActivity : TutorialActivity() {
 
         addFragment(
             Step.Builder().setTitle("Find Repair Shop")
-                .setContent("Best partner for a bad situation.Don't worry,fix it yourself or search")
+                .setContent("Best partner for a bad situation. Don't worry, fix it yourself or search")
                 .setBackgroundColor(Color.parseColor("#101727")) // int background color
                 .setDrawable(R.drawable.onboard2) // int top drawable
-                .setSummary("This is summary")
                 .build()
         )
         addFragment(
@@ -29,7 +28,6 @@ class OnBoardingActivity : TutorialActivity() {
                 .setContent("We provide services instruction to repair your vehicle easily")
                 .setBackgroundColor(Color.parseColor("#101727")) // int background color
                 .setDrawable(R.drawable.onboard1) // int top drawable
-                .setSummary("This is summary")
                 .build()
         )
         addFragment(
@@ -37,7 +35,6 @@ class OnBoardingActivity : TutorialActivity() {
                 .setContent("#BenerinYaBengkelin")
                 .setBackgroundColor(Color.parseColor("#101727")) // int background color
                 .setDrawable(R.drawable.onboard3) // int top drawable
-                .setSummary("This is summary")
                 .build()
         )
 
