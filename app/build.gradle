@@ -69,8 +69,5 @@ dependencies {
     }
     //onboarding lib
     implementation 'com.github.msayan:tutorial-view:v1.0.10'
-
-
-
 }
 apply plugin: 'com.google.gms.google-services'
