@@ -17,24 +17,24 @@ class OnBoardingActivity : TutorialActivity() {
 
 
         addFragment(
-            Step.Builder().setTitle("This is header")
-                .setContent("This is content")
-                .setBackgroundColor(Color.parseColor("#101727")) // int background color
-                .setDrawable(R.drawable.onboard1) // int top drawable
-                .setSummary("This is summary")
-                .build()
-        )
-        addFragment(
-            Step.Builder().setTitle("This is header")
-                .setContent("This is content")
+            Step.Builder().setTitle("Find Repair Shop")
+                .setContent("Best partner for a bad situation.Don't worry,fix it yourself or search")
                 .setBackgroundColor(Color.parseColor("#101727")) // int background color
                 .setDrawable(R.drawable.onboard2) // int top drawable
                 .setSummary("This is summary")
                 .build()
         )
         addFragment(
-            Step.Builder().setTitle("This is header")
-                .setContent("This is content")
+            Step.Builder().setTitle("Responsive Mechanic")
+                .setContent("We provide services instruction to repair your vehicle easily")
+                .setBackgroundColor(Color.parseColor("#101727")) // int background color
+                .setDrawable(R.drawable.onboard1) // int top drawable
+                .setSummary("This is summary")
+                .build()
+        )
+        addFragment(
+            Step.Builder().setTitle("Enjoy Your Ride and Drive Safety")
+                .setContent("#BenerinYaBengkelin")
                 .setBackgroundColor(Color.parseColor("#101727")) // int background color
                 .setDrawable(R.drawable.onboard3) // int top drawable
                 .setSummary("This is summary")
