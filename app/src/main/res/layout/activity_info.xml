@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    tools:context=".InfoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_info"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBackground"
+        android:elevation="0dp"
+        android:foregroundTint="@color/colorWhite"
+        app:title="Info"
+        app:titleTextColor="@color/colorWhite" />
+
+    <Button
+        android:id="@+id/btnTerm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:drawableLeft="@drawable/ic_description_orange_24dp"
+        android:drawablePadding="10dp"
+        android:gravity=""
+        android:paddingStart="16dp"
+        android:text="@string/btn_term"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/btnDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:drawableLeft="@drawable/ic_code_orange_24dp"
+        android:drawablePadding="10dp"
+        android:gravity=""
+        android:paddingStart="16dp"
+        android:text="@string/btn_dev"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/btnVer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:drawableLeft="@drawable/ic_sync_orange_24dp"
+        android:drawablePadding="10dp"
+        android:gravity=""
+        android:paddingStart="16dp"
+        android:text="@string/btn_ver"
+        android:textSize="16sp"/>
+
+</LinearLayout>
