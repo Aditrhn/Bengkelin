@@ -12,9 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterNumber"></activity>
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".EditPasswordActivity" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".RegisterPasswordActivity" />
+        <activity android:name=".RegisterPasswordActivity"  />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".WelcomeActivity" />
         <activity
