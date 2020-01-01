@@ -1,15 +1,16 @@
 package com.bklndev.bengkelin.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bklndev.bengkelin.FindActivity
 
 import com.bklndev.bengkelin.R
-import com.bklndev.bengkelin.RecyclerArticleAdapter
+import com.bklndev.bengkelin.adapter.RecyclerArticleAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -34,7 +35,12 @@ class HomeFragment : Fragment() {
         glideLoad(view)
 
         rv_article.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rv_article.adapter = RecyclerArticleAdapter(title,section)
+        rv_article.adapter =
+            RecyclerArticleAdapter(title, section)
+
+        btn_search.setOnClickListener {
+            findBengkel()
+        }
     }
 
     private fun glideLoad(view: View){
@@ -42,5 +48,10 @@ class HomeFragment : Fragment() {
             .load("https://github.com/Makrovic/Bengkelin_Prototype2/raw/master/amel2.jpg")
             .apply(RequestOptions.circleCropTransform())
             .into(iv_hello)
+    }
+
+    private fun findBengkel(){
+        val intent = Intent(context, FindActivity::class.java)
+        startActivity(intent)
     }
 }

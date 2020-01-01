@@ -57,7 +57,7 @@
                 android:inputType="text"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorGrey"
-                android:text="@string/user_name"/>
+                android:text="username"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
                 android:inputType="number"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorGrey"
-                android:text="@string/user_phone"/>
+                android:text="phone"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +91,8 @@
                 android:inputType="text"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorGrey"
-                android:text="@string/user_mail"/>
+                android:text="mail"
+                />
 
 
         </LinearLayout>
