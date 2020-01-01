@@ -2,6 +2,9 @@
 <project version="4">
   <component name="DiscordProjectSettings">
     <option name="show" value="true" />
+    <option name="nameOverrideEnabled" value="true" />
+    <option name="nameOverrideText" value="Bengkelin" />
+    <option name="description" value="Final Project PAM" />
   </component>
   <component name="ProjectNotificationSettings">
     <option name="askShowProject" value="false" />

@@ -23,8 +23,10 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-    private var codeSent: String? = ""
+    private lateinit var name: String
+    private lateinit var email: String
     private lateinit var phone: String
+    private var codeSent: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +43,8 @@ class RegisterActivity : AppCompatActivity() {
         }
         callbacks = object: PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
             override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
-                Log.w("PhoneAuthActivity", "code : $codeSent")
                 Log.w("PhoneAuthActivity", "onVerificationCompleted:$phoneAuthCredential")
+                authToPassword(phoneAuthCredential)
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
@@ -64,7 +66,7 @@ class RegisterActivity : AppCompatActivity() {
                 codeSent = verificationId
 
                 Log.d("PhoneAuthActivity","phone : $phone verif id : $codeSent")
-                nextToNumber(phone)
+                nextToNumber()
             }
         }
     }
@@ -78,22 +80,43 @@ class RegisterActivity : AppCompatActivity() {
         inflater.inflate(R.menu.register_menu, menu)
         return true
     }
-    private fun nextToNumber(phone: String){
-        val name: String = et_name .text.toString().trim()
-        val email: String = et_email .text.toString().trim()
-
-        if(TextUtils.isEmpty(name)||TextUtils.isEmpty(email)){
-            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
-        }else if(!isEmailValid(email)){
-            Toast.makeText(this, "Please provide valid email address", Toast.LENGTH_LONG).show()
-        }else{
+    private fun nextToNumber(){
             intent = Intent(this, RegisterNumber::class.java)
             intent.putExtra("name_value", name)
             intent.putExtra("email_value", email)
             intent.putExtra("phone_value", phone)
             intent.putExtra("code_value", codeSent)
             startActivity(intent)
-        }
+    }
+
+    private fun nextToPassword(){
+        intent = Intent(this, RegisterPasswordActivity::class.java)
+        intent.putExtra("name_value", name)
+        intent.putExtra("email_value", email)
+        intent.putExtra("phone_value", phone)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun authToPassword(credential: PhoneAuthCredential){
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("PhoneAuthActivity", "signInWithCredential:success")
+
+                    val user = task.result?.user
+                    // ...
+                    Log.d("PhoneAuthActivity", "User : $user")
+                    nextToPassword()
+                } else {
+                    // Sign in failed, display a message and update the UI
+                    Log.w("PhoneAuthActivity", "signInWithCredential:failure", task.exception)
+                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
+                        // The verification code entered was invalid
+                    }
+                }
+            }
     }
 
     private fun isEmailValid(email: String): Boolean {
@@ -101,17 +124,22 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun sendVerificationCode(){
+        name = et_name .text.toString().trim()
+        email = et_email .text.toString().trim()
         phone = et_phone .text.toString().trim()
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-            phone, // Phone number to verify
-            30, // Timeout duration
-            TimeUnit.SECONDS, // Unit of timeout
-            this, // Activity (for callback binding)
-            callbacks) // OnVerificationStateChangedCallbacks
-    }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString("CODE_SENT",codeSent)
+        if(TextUtils.isEmpty(name)||TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show()
+        }else if(!isEmailValid(email)){
+            Toast.makeText(this, "Please provide valid email address", Toast.LENGTH_LONG).show()
+        }else {
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phone, // Phone number to verify
+                30, // Timeout duration
+                TimeUnit.SECONDS, // Unit of timeout
+                this, // Activity (for callback binding)
+                callbacks
+            ) // OnVerificationStateChangedCallbacks
+        }
     }
 }
