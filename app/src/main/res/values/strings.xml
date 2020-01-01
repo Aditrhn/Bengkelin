@@ -3,7 +3,18 @@
     <string name="title_home">Home</string>
     <string name="title_chat">Chat</string>
     <string name="title_account">Account</string>
+    
+    <string name="user_name">Solikin Died by Radio</string>
+    <string name="user_mail">howsolikindied@gmail.com</string>
+    <string name="user_phone">+6289613758239</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="btn_account">Account</string>
+    <string name="btn_password">Password</string>
+    <string name="btn_help">Help</string>
+    <string name="btn_info">Info</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btn_term">Term and Privacy Policy</string>
+    <string name="btn_dev">Developer</string>
+    <string name="btn_ver">Version</string>
 
 </resources>
